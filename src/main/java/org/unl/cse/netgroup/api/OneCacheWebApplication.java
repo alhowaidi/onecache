@@ -21,7 +21,7 @@ import org.onlab.rest.AbstractWebApplication;
 import java.util.Set;
 
 /**
- * Sample REST API web application.
+ * OneCache REST API web application.
  */
 public class OneCacheWebApplication extends AbstractWebApplication {
     @Override

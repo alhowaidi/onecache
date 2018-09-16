@@ -25,7 +25,7 @@ import javax.ws.rs.core.Response;
 import static org.onlab.util.Tools.nullIsNotFound;
 
 /**
- * Sample web resource.
+ * OneCache web resource.
  */
 @Path("sample")
 public class OneCacheWebResource extends AbstractWebResource {
@@ -37,8 +37,8 @@ public class OneCacheWebResource extends AbstractWebResource {
      */
     @GET
     @Path("")
-    public Response getGreeting() {
-        ObjectNode node = mapper().createObjectNode().put("hello", "world");
+    public Response getAppInfo() {
+        ObjectNode node = mapper().createObjectNode().put("Application", "OneCache");
         return ok(node).build();
     }
 
