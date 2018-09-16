@@ -13,33 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.unl.cse.netgroup;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.onosproject.rest.AbstractWebResource;
+package org.unl.cse.netgroup.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import org.onlab.rest.AbstractWebApplication;
 
-import static org.onlab.util.Tools.nullIsNotFound;
+import java.util.Set;
 
 /**
- * Sample web resource.
+ * Sample REST API web application.
  */
-@Path("sample")
-public class AppWebResource extends AbstractWebResource {
-
-    /**
-     * Get hello world greeting.
-     *
-     * @return 200 OK
-     */
-    @GET
-    @Path("")
-    public Response getGreeting() {
-        ObjectNode node = mapper().createObjectNode().put("hello", "world");
-        return ok(node).build();
+public class OneCacheWebApplication extends AbstractWebApplication {
+    @Override
+    public Set<Class<?>> getClasses() {
+        return getClasses(OneCacheWebResource.class);
     }
-
 }

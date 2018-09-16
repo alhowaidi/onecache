@@ -21,25 +21,25 @@
     <version>1.0.0</version>
     <packaging>bundle</packaging>
 
-    <description>ONOS OSGi bundle archetype</description>
+    <description>OneCache: A virtual router caching framework for Named Data Networking (NDN).</description>
     <url>http://onosproject.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <web.context>/onos/onecache</web.context>
-        <api.description>Sample application REST API</api.description>
+        <api.description>OneCache REST API</api.description>
         <onos.version>1.14.0</onos.version>
         <api.version>1.0.0</api.version>
         <api.package>org.unl.cse.netgroup</api.package>
         <api.title>Sample app REST API</api.title>
-        <!-- Uncomment to generate ONOS app from this module.
-        <onos.app.name>org.foo.app</onos.app.name>
-        <onos.app.title>Foo App</onos.app.title>
-        <onos.app.origin>Foo, Inc.</onos.app.origin>
+        <!-- Uncomment to generate ONOS app from this module.-->
+        <onos.app.name>org.unl.cse.netgroup.onecache</onos.app.name>
+        <onos.app.title>OneCache</onos.app.title>
+        <onos.app.origin>University of Nebraska-Lincoln.</onos.app.origin>
         <onos.app.category>default</onos.app.category>
-        <onos.app.url>http://onosproject.org</onos.app.url>
-        <onos.app.readme>ONOS OSGi bundle archetype.</onos.app.readme>
-        -->
+        <onos.app.url>https://github.com/deepaknadig/onecache</onos.app.url>
+        <onos.app.readme>OneCache: A virtual router caching framework for Named Data Networking (NDN).</onos.app.readme>
+        <!-- End comment-->
     </properties>
 
     <dependencies>

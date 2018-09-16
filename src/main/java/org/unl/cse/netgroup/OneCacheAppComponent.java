@@ -13,19 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.unl.cse.netgroup;
 
-import org.onlab.rest.AbstractWebApplication;
-
-import java.util.Set;
+import org.apache.felix.scr.annotations.Activate;
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Deactivate;
+import org.apache.felix.scr.annotations.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Sample REST API web application.
+ * Skeletal ONOS application component.
  */
-public class AppWebApplication extends AbstractWebApplication {
-    @Override
-    public Set<Class<?>> getClasses() {
-        return getClasses(AppWebResource.class);
+@Component(immediate = true)
+public class OneCacheAppComponent {
+
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
+    @Activate
+    protected void activate() {
+        log.info("Started OneCache Application.");
     }
+
+    @Deactivate
+    protected void deactivate() {
+        log.info("Stopped OneCache Application.");
+    }
+
 }
