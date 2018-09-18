@@ -151,8 +151,8 @@
                 <configuration>
           <instructions>
             <_wab>src/main/webapp/</_wab>
-            <Include-Resource>WEB-INF/classes/apidoc/swagger.json=target/swagger.json,
-                            {maven-resources}</Include-Resource>
+            <!--<Include-Resource>WEB-INF/classes/apidoc/swagger.json=target/swagger.json,-->
+                            <!--{maven-resources}</Include-Resource>-->
             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
             <Import-Package>*,org.glassfish.jersey.servlet</Import-Package>
             <Web-ContextPath>${web.context}</Web-ContextPath>
