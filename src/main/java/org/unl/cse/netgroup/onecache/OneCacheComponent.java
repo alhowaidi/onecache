@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.unl.cse.netgroup;
+package org.unl.cse.netgroup.onecache;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
@@ -26,13 +26,17 @@ import org.slf4j.LoggerFactory;
  * Skeletal ONOS application component.
  */
 @Component(immediate = true)
-public class OneCacheAppComponent {
+public class OneCacheComponent {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Activate
     protected void activate() {
         log.info("Started OneCache Application.");
+        log.info("\n\n\t  ____           _____         __      \n" +
+                "\t / __ \\___  ___ / ___/__ _____/ /  ___ \n" +
+                "\t/ /_/ / _ \\/ -_) /__/ _ `/ __/ _ \\/ -_)\n" +
+                "\t\\____/_//_/\\__/\\___/\\_,_/\\__/_//_/\\__/ \n\n");
     }
 
     @Deactivate

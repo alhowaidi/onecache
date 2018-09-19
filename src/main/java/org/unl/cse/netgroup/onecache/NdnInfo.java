@@ -1,8 +1,7 @@
-package org.unl.cse.netgroup;
+package org.unl.cse.netgroup.onecache;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class NdnInfo {
 
@@ -11,7 +10,7 @@ public class NdnInfo {
     private String interestSrc;
     private String interestDst;
 
-    private static Logger log = LoggerFactory.getLogger(NdnInfo.class);
+    private Logger log = LoggerFactory.getLogger(NdnInfo.class);
 
     public NdnInfo(String name, String interestFileResource, String interestSrc, String interestDst) {
         this.name = name;

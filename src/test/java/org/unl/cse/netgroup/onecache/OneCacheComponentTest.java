@@ -13,21 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.unl.cse.netgroup.cli;
+package org.unl.cse.netgroup.onecache;
 
-import org.apache.karaf.shell.commands.Command;
-import org.onosproject.cli.AbstractShellCommand;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * Sample Apache Karaf CLI command
+ * Set of tests of the ONOS application component.
  */
-@Command(scope = "onecache", name = "info",
-         description = "OneCache CLI command")
-public class OneCacheCommand extends AbstractShellCommand {
+public class OneCacheComponentTest {
 
-    @Override
-    protected void execute() {
-        print("Welcome to %s.", "OneCache");
+    private OneCacheComponent component;
+
+    @Before
+    public void setUp() {
+        component = new OneCacheComponent();
+        component.activate();
+
+    }
+
+    @After
+    public void tearDown() {
+        component.deactivate();
+    }
+
+    @Test
+    public void basics() {
+
     }
 
 }

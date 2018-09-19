@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.unl.cse.netgroup.api;
+package org.unl.cse.netgroup.onecache.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.onosproject.rest.AbstractWebResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.unl.cse.netgroup.NdnInfo;
+import org.unl.cse.netgroup.onecache.NdnInfo;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -37,37 +37,25 @@ import static org.onlab.util.Tools.nullIsNotFound;
 @Path("")
 public class OneCacheWebResource extends AbstractWebResource {
 
-    private static Logger log = LoggerFactory.getLogger(OneCacheWebResource.class);
+    private Logger log = LoggerFactory.getLogger(OneCacheWebResource.class);
     private static NdnInfo ndnInfo;
-    private final ObjectNode root = mapper().createObjectNode();
 
     /**
-     * Get hello world greeting.
+     * OneCache application info.
      *
      * @return 200 OK
      */
     @GET
     @Path("info")
-    public Response getAppInfo() {
+    public Response getGreeting() {
         ObjectNode node = mapper().createObjectNode().put("Application", "OneCache");
         return ok(node).build();
     }
 
-    @POST
-    @Path("ndn")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response ndnPostInfo(InputStream stream) throws IOException {
-        ndnInfo = JsonToNdnInfo(stream);
-        ndnInfo.logInfo();
-
-        String msg = "Message";
-        return Response.ok(root).build();
-    }
-
     @GET
-    @Path("ndn")
-    public Response getNdnInfo() {
+    @Path("interest")
+    public Response getInterest() {
+        ObjectNode root = mapper().createObjectNode();
 
         try {
             root.put("Name", ndnInfo.getName());
@@ -82,13 +70,27 @@ public class OneCacheWebResource extends AbstractWebResource {
     }
 
 
+    @POST
+    @Path("interest")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response postInterest(InputStream stream) {
+        ObjectNode root = mapper().createObjectNode();
+
+        ndnInfo = JsonToNdnInfo(stream);
+        ndnInfo.logInfo();
+
+        root.put("Status", "Success");
+        return ok(root).build();
+    }
+
 
     private NdnInfo JsonToNdnInfo(InputStream stream) {
         JsonNode jsonNode;
         try {
             jsonNode = mapper().readTree(stream);
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to parse the Mobius NDN POST.");
+            throw new IllegalArgumentException("Unable to parse the OneCache NDN POST.");
         }
 
         String name = jsonNode.path("name").asText(null);
@@ -96,7 +98,7 @@ public class OneCacheWebResource extends AbstractWebResource {
         String interestSrc = jsonNode.path("interestSrc").asText(null);
         String interestDst = jsonNode.path("interestDst").asText(null);
 
-        log.info("Pinged!");
+        log.info("Received an Interest.");
         if (name != null && interestFileResource != null && interestSrc != null && interestDst != null) {
             return new NdnInfo(name, interestFileResource, interestSrc, interestDst);
         } else {

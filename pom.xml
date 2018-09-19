@@ -13,33 +13,33 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.unl.cse.netgroup</groupId>
+    <groupId>org.unl.cse.netgroup.onecache</groupId>
     <artifactId>onecache</artifactId>
     <version>1.0.0</version>
     <packaging>bundle</packaging>
 
-    <description>OneCache: A virtual router caching framework for Named Data Networking (NDN).</description>
+    <description>ONOS OSGi bundle archetype</description>
     <url>http://onosproject.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <web.context>/onos/onecache</web.context>
-        <api.description>OneCache REST API</api.description>
         <onos.version>1.14.0</onos.version>
         <api.version>1.0.0</api.version>
-        <api.package>org.unl.cse.netgroup</api.package>
-        <api.title>Sample app REST API</api.title>
-        <!-- Uncomment to generate ONOS app from this module.-->
         <onos.app.name>org.unl.cse.netgroup.onecache</onos.app.name>
-        <onos.app.title>OneCache</onos.app.title>
+        <onos.app.title>OneCache App</onos.app.title>
         <onos.app.origin>University of Nebraska-Lincoln.</onos.app.origin>
         <onos.app.category>default</onos.app.category>
-        <onos.app.url>https://github.com/deepaknadig/onecache</onos.app.url>
-        <onos.app.readme>OneCache: A virtual router caching framework for Named Data Networking (NDN).</onos.app.readme>
-        <!-- End comment-->
+        <api.description>OneCache application REST API</api.description>
+        <web.context>/onos/onecache</web.context>
+        <api.title>OneCache app REST API</api.title>
+        <onos.app.url>http://cse.unl.edu/~deepakandig</onos.app.url>
+        <api.package>org.unl.cse.netgroup.onecache</api.package>
+        <onos.app.readme>ONOS OSGi bundle archetype.</onos.app.readme>
     </properties>
 
     <dependencies>
@@ -78,67 +78,67 @@
         </dependency>
 
         <dependency>
-      <groupId>org.onosproject</groupId>
-      <artifactId>onos-cli</artifactId>
-      <version>${onos.version}</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
-      <version>5.0.0</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.6</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>org.apache.karaf.shell</groupId>
-      <artifactId>org.apache.karaf.shell.console</artifactId>
-      <version>3.0.8</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onos-rest</artifactId>
+            <version>${onos.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.apache.karaf.shell</groupId>
+            <artifactId>org.apache.karaf.shell.console</artifactId>
+            <version>3.0.8</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.8.6</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.8.6</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>org.onosproject</groupId>
-      <artifactId>onos-rest</artifactId>
-      <version>${onos.version}</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onos-cli</artifactId>
+            <version>${onos.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.8.6</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>2.26</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-servlet</artifactId>
-      <version>2.26</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
-      <groupId>org.onosproject</groupId>
-      <artifactId>onlab-rest</artifactId>
-      <version>${onos.version}</version>
-      <scope>provided</scope>
-    </dependency>
+            <groupId>org.onosproject</groupId>
+            <artifactId>onlab-rest</artifactId>
+            <version>${onos.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -149,15 +149,16 @@
                 <version>3.3.0</version>
                 <extensions>true</extensions>
                 <configuration>
-          <instructions>
-            <_wab>src/main/webapp/</_wab>
-            <!--<Include-Resource>WEB-INF/classes/apidoc/swagger.json=target/swagger.json,-->
-                            <!--{maven-resources}</Include-Resource>-->
-            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-            <Import-Package>*,org.glassfish.jersey.servlet</Import-Package>
-            <Web-ContextPath>${web.context}</Web-ContextPath>
-          </instructions>
-        </configuration>
+                    <instructions>
+                        <_wab>src/main/webapp/</_wab>
+                        <!--<Include-Resource>WEB-INF/classes/apidoc/swagger.json=target/swagger.json,-->
+                            <!--{maven-resources}-->
+                        <!--</Include-Resource>-->
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Import-Package>*,org.glassfish.jersey.servlet</Import-Package>
+                        <Web-ContextPath>${web.context}</Web-ContextPath>
+                    </instructions>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

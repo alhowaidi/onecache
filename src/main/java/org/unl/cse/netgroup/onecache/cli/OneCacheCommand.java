@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.unl.cse.netgroup.onecache.cli;
 
-package org.unl.cse.netgroup.api;
-
-import org.onlab.rest.AbstractWebApplication;
-
-import java.util.Set;
+import org.apache.karaf.shell.commands.Command;
+import org.onosproject.cli.AbstractShellCommand;
 
 /**
- * OneCache REST API web application.
+ * OneCache CLI command
  */
-public class OneCacheWebApplication extends AbstractWebApplication {
+@Command(scope = "onecache", name = "info",
+         description = "OneCache CLI info command")
+public class OneCacheCommand extends AbstractShellCommand {
+
     @Override
-    public Set<Class<?>> getClasses() {
-        return getClasses(OneCacheWebResource.class);
+    protected void execute() {
+        print("Welcome to OneCache!");
     }
+
 }
